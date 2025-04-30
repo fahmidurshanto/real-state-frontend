@@ -13,6 +13,7 @@ import AgentSlider from "../../components/AgentSlider/AgentSlider";
 import PropertySearchBar from "../../components/PropertySearchBar/PropertySearchBar";
 import PropertyCardSlider from "../../components/PropertyCardSlider/PropertyCardSlider";
 import CommunitySlider from "../../components/CommunitySlider/CommunitySlider";
+import PopularCommunities from "../../components/PopularCommunities/PopularCommunities";
 
 const OffPlanPropertiesPage = () => {
   const [allProperties] = useState([
@@ -235,6 +236,9 @@ const OffPlanPropertiesPage = () => {
           Learn more about Dubai's world famous developers and what makes them unique.
         </p>
         <AgentSlider />
+
+        {/* popular communities section  */}
+        <PopularCommunities></PopularCommunities>
       </div>
 
       <h3 className="text-2xl font-semibold px-4 pt-10">Luxury branded projects</h3>
