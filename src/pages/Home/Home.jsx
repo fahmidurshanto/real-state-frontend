@@ -4,6 +4,8 @@ import SearchField from "../../components/SearchField/SearchField";
 import Services from "../../components/Services/Services";
 import TopProperties from "../../components/TopProperties/TopProperties";
 import FindConsultant from "../../components/FindConsultant/FindConsultant";
+import LocationCategory from "../../LocationBasedProperty/locationCategory";
+import NewsAndInsights from "../../components/NewsAndInsights/NewsAndInsights";
 
 const Home = () => {
   return (
@@ -18,8 +20,8 @@ const Home = () => {
       <Services></Services>
       <FindConsultant></FindConsultant>
       <TopProperties></TopProperties>
-      {/* <LocationCategory></LocationCategory>
-      <NewsAndInsights></NewsAndInsights> */}
+      <LocationCategory></LocationCategory>
+      <NewsAndInsights></NewsAndInsights>
       </div>
     </div>
   );

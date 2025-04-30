@@ -1,103 +1,119 @@
-import { FaArrowRightLong } from "react-icons/fa6";
+import React, { useState } from "react";
 
 const Footer = () => {
-  return (
-    <footer className="flex flex-col justify-start py-10 px-4 sm:px-8 md:px-16 gap-8 md:gap-10 w-full bg-gradient-to-t from-[#256FFF] to-[#25AFFF] text-white">
-      {/* Main Content */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full">
-        {/* Newsletter Section */}
-        <div className="flex flex-col items-start gap-4 w-full max-w-4xl">
-          <h3 className="text-xl sm:text-2xl font-bold">Stay in the loop</h3>
-          <p className="text-sm sm:text-base">
-            News and insights straight to your inbox. We don't spam.
-          </p>
+  const [email, setEmail] = useState("");
 
-          <div className="flex flex-col w-full md:w-[76%] gap-2">
-            <div className="relative w-full">
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email) {
+      console.log("Subscribing email:", email);
+      alert(`Thank you for subscribing with ${email}!`);
+      setEmail("");
+    }
+  };
+
+  return (
+    <footer className="self-stretch flex w-full flex-col overflow-hidden items-stretch justify-center mt-12 py-[19px] rounded-[20px_20px_0px_0px] max-md:max-w-full max-md:mt-10 bg-[rgba(37,111,255,1)]">
+      <div className="flex w-full items-center justify-around gap-[40px_100px] overflow-hidden text-base text-white font-medium  flex-wrap px-5 py-2.5 max-md:max-w-full">
+        <div className="self-stretch min-w-60 overflow-hidden font-normal my-auto p-2.5 max-md:max-w-full">
+          <h3 className="text-white text-2xl font-semibold">Stay in the loop</h3>
+          <p className="font-medium mt-2.5 max-md:max-w-full">
+            News and insight straight to your inbox. We don't spam.
+          </p>
+          <form onSubmit={handleSubscribe} className="mt-2.5">
+            <div className="bg-[rgba(246,247,255,1)] flex max-w-full w-[444px] items-stretch gap-5 overflow-hidden text-black justify-between px-[22px] py-[21px] rounded-[15px] max-md:pr-5">
               <input
                 type="email"
-                className="w-full p-2 pl-4 pr-12 rounded bg-white border-none focus:outline-none text-gray-800 text-sm sm:text-base"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="bg-transparent outline-none flex-1"
               />
-              <button className="absolute cursor-pointer right-2 top-1/2 transform -translate-y-1/2 bg-white text-blue-600 p-2 rounded-full hover:bg-blue-100 transition-colors">
-                <FaArrowRightLong />
+              <button type="submit">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/641f5fc1a0e14172a7f4376b457540cc/42479e31cdcb67cdbb55e09f9281ea1dec82ceff?placeholderIfAbsent=true"
+                  alt="Submit"
+                  className="aspect-[1] object-contain w-6 shrink-0 cursor-pointer"
+                />
               </button>
             </div>
-
-            <p className="text-white text-xs">
-              By clicking Submit, you agree to our{" "}
-              <span className="text-blue-300 cursor-pointer hover:underline">
-                Terms & Conditions
-              </span>{" "}
-              and Privacy Policy.
-            </p>
-          </div>
+          </form>
+          <p className="text-[11px] mt-2.5 max-md:max-w-full">
+            <span className="font-medium">By clicking Submit, you agree to our </span>
+            <a href="#" className="font-semibold text-white hover:underline">Terms & Conditions</a>
+            <span className="font-medium"> and </span>
+            <a href="#" className="font-semibold text-white hover:underline">Privacy Policy</a>
+            <span className="font-medium">.</span>
+          </p>
         </div>
 
-        {/* Links Sections */}
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-16">
-          {/* Services */}
-          <div className="flex flex-col gap-2">
-            <h4 className="font-bold text-sm sm:text-base">Services</h4>
-            <ul className="flex flex-col gap-1 text-xs sm:text-sm">
-              <li className="hover:underline cursor-pointer">Residential Areas</li>
-              <li className="hover:underline cursor-pointer">Residential Leasing</li>
-              <li className="hover:underline cursor-pointer">Off Plan</li>
-              <li className="hover:underline cursor-pointer">Commercial Properties</li>
-              <li className="hover:underline cursor-pointer">Properties Management</li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="flex flex-col gap-2">
-            <h4 className="font-bold text-sm sm:text-base">Resources</h4>
-            <ul className="flex flex-col gap-1 text-xs sm:text-sm">
-              <li className="hover:underline cursor-pointer">Real Estate Guides</li>
-              <li className="hover:underline cursor-pointer">News & Insights</li>
-              <li className="hover:underline cursor-pointer">Market Reports</li>
-              <li className="hover:underline cursor-pointer">Instant Property Valuation</li>
-              <li className="hover:underline cursor-pointer">Podcast</li>
-            </ul>
-          </div>
-
-          {/* About */}
-          <div className="flex flex-col gap-2">
-            <h4 className="font-bold text-sm sm:text-base">About</h4>
-            <ul className="flex flex-col gap-1 text-xs sm:text-sm">
-              <li className="hover:underline cursor-pointer">Our Story</li>
-              <li className="hover:underline cursor-pointer">Our Team</li>
-              <li className="hover:underline cursor-pointer">Client Reviews</li>
-              <li className="hover:underline cursor-pointer">Careers</li>
-              <li className="hover:underline cursor-pointer">Contact</li>
-            </ul>
-          </div>
+       <div className="flex justify-center items-center gap-5">
+         <div className="self-stretch overflow-hidden my-auto p-2.5">
+          <h3 className="text-white text-2xl font-semibold">Services</h3>
+          <ul>
+            {["Residential areas", "Residential leasing", "Off plan", "Commercial Properties", "Properties Management"].map((item, idx) => (
+              <li key={idx} className="mt-2.5 hover:text-[rgba(198,234,255,1)] transition-colors">
+                <a href="#">{item}</a>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <div className="self-stretch overflow-hidden my-auto p-2.5">
+          <h3 className="text-white text-2xl font-semibold">Resources</h3>
+          <ul>
+            {["Real Estate Guides", "News & Insights", "Market Reports", "Instant Property Valuation", "Podcast"].map((item, idx) => (
+              <li key={idx} className="mt-2.5 hover:text-[rgba(198,234,255,1)] transition-colors">
+                <a href="#">{item}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="self-stretch overflow-hidden my-auto p-2.5">
+          <h3 className="text-white text-2xl font-semibold">About</h3>
+          <ul>
+            {["Our Story", "Our team", "Client Reviews", "Careers", "Contact"].map((item, idx) => (
+              <li key={idx} className="mt-2.5 hover:text-[rgba(198,234,255,1)] transition-colors">
+                <a href="#">{item}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+       </div>
       </div>
 
-      <hr className="border-blue-400 w-full" />
+      <div className="border self-center min-h-0 w-[1379px] max-w-full mt-2.5 border-[rgba(0,0,0,0.1)] border-solid" />
 
-      {/* Bottom Section */}
-      <div className="flex flex-col sm:flex-row justify-between w-full gap-4 sm:gap-0">
-        {/* Contact Info */}
-        <div className="flex flex-col gap-2 text-xs sm:text-sm">
-          <p>Buy Square - Office #507 - Building 13 - Business Bay</p>
-          <p>Dubai - United Arab Emirates</p>
-          <p>Monday to Saturday: 9:00 AM - 6:00 PM</p>
-          <p>© 2024 Sanisuary All Rights Reserved</p>
+      <div className="flex w-full items-center gap-[40px_100px] overflow-hidden justify-between flex-wrap mt-2.5 px-5 py-2.5 max-md:max-w-full">
+        <div className="self-stretch min-w-60 overflow-hidden text-base text-white font-medium my-auto p-2.5 max-md:max-w-full">
+          <address className="max-md:max-w-full not-italic">
+            Bay Square - Office #601 - Building 13 - Business Bay <br />
+            Dubai - United Arab Emirates
+          </address>
+          <div className="mt-2.5">Monday to Saturday: 9:00 AM – 6:00 PM</div>
+          <div className="text-[11px] mt-2.5">©️ 2025 MateLuxy. All Rights Reserved.</div>
         </div>
 
-        {/* Social Media */}
-        <div className="flex items-center gap-4 self-start sm:self-auto">
-          <img
-            className="w-6 h-6 sm:w-8 sm:h-8"
-            src="https://i.ibb.co.com/1JJVjgXg/image.png"
-            alt="Whatsapp"
-          />
-          <img
-            className="w-6 h-6 sm:w-8 sm:h-8"
-            src="https://i.ibb.co.com/jkS512fF/image.png"
-            alt="Facebook"
-          />
+        <div className="self-stretch flex gap-2.5 overflow-hidden my-auto">
+          <a
+            href="#"
+            className="bg-[rgba(224,255,228,1)] flex items-center gap-2.5 w-11 h-11 p-2.5 rounded-[1000px] hover:bg-[rgba(204,235,208,1)] transition-colors"
+          >
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/641f5fc1a0e14172a7f4376b457540cc/c58eaa042bcdef6e91edab2304f05f832fffc98b?placeholderIfAbsent=true"
+              alt="WhatsApp"
+              className="aspect-[1] object-contain w-6 self-stretch my-auto"
+            />
+          </a>
+          <a href="#">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/641f5fc1a0e14172a7f4376b457540cc/98e63ee1ffdd9c99ce5cdf0adf2b43177710a6cd?placeholderIfAbsent=true"
+              alt="Social Media"
+              className="aspect-[1] object-contain w-11 shrink-0"
+            />
+          </a>
         </div>
       </div>
     </footer>
