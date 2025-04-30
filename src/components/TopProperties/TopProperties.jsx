@@ -81,11 +81,14 @@ const TopProperties = () => {
     <div className="px-0 py-8 animate__animated animate__fadeIn">
       <h1 className="text-2xl md:text-3xl font-bold text-[#083819] mb-4">Browse our top properties</h1>
       {/* cards container */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6">
+      <div  class="overflow-x-auto "
+      style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+      <div className="grid grid-flow-col auto-cols-max gap-4">
         {/* card */}
         {
-          properties.slice(0,3).map((property, index) => <ProCard key={index} property={property}></ProCard>)
+          properties.slice(0,4).map((property, index) => <ProCard key={index} property={property}></ProCard>)
         }
+      </div>
       </div>
     </div>
   );
