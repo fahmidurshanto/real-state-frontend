@@ -4,9 +4,10 @@ import "react-tabs/style/react-tabs.css";
 import "animate.css";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const PropertySearchBar = () => {
+
   const [activeTab, setActiveTab] = useState(0);
   const [searchParams, setSearchParams] = useState({
     location: "",
@@ -16,6 +17,10 @@ const PropertySearchBar = () => {
     beds: "",
     baths: "" 
   });
+
+
+
+  const location  = useLocation();
 
   
   // Dynamic data
@@ -262,7 +267,7 @@ const PropertySearchBar = () => {
   };
 
   return (
-    <div className="w-full mx-auto p-4 md:p-6 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn">
+    <div className="w-full mx-auto -z-50 p-4 mt-20 md:p-6 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn">
   <Tabs 
     selectedIndex={activeTab} 
     onSelect={(index) => {
@@ -280,7 +285,7 @@ const PropertySearchBar = () => {
   >
     <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch md:items-center w-full">
       {/* Tabs Section */}
-      <TabList className="flex items-center gap-2  p-1 md:p-2 rounded-lg min-h-[50px] w-full md:w-auto">
+      <TabList className={`flex items-center gap-2  p-1 md:p-2 rounded-lg min-h-[50px] w-full md:w-auto ${location.pathname === "/off-plan-properties" && "hidden"}`}>
         <Tab
           className={`flex-grow md:flex-grow-0 px-3 md:px-4 py-2 text-sm font-medium rounded-md cursor-pointer transition-all duration-300 flex items-center justify-center ${
             activeTab === 0

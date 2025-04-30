@@ -14,19 +14,19 @@ import divider from "../../assets/line-2.svg";
 import { LiaBathSolid, LiaBedSolid } from "react-icons/lia";
 import { useLocation } from "react-router-dom";
 
-const ProCard = ({ property }) => {
+const OffPlanCard = ({ property }) => {
 
   const location = useLocation()
 
 
   return (
-    <div className={`w-[395px] p-[15px] my-5 md:my-0 border border-[#e6e6e6] rounded-[20px] animate__animated animate__fadeInUp]`}>
+    <div className="w-[395px] p-[15px] my-5 md:my-0 border border-[#e6e6e6] rounded-[20px] animate__animated animate__fadeInUp]">
       <img src={property?.image ? property.image : property.mainImage} alt={property?.name} className="rounded-[15px] w-[380px] h-[214px]" />
       <div className="flex justify-between items-center mt-4">
-        <h3 className="truncate text-[20px] pl-4 font-medium">
+        <h3 className="truncate text-[20px] font-medium">
           {property?.name ? property.name : property.title}
         </h3>
-        {property.propertyType =="Villa" ? <button className="py-[5px] pr-4 px-[10px] ml-[10px] bg-[#FFF5E7] text-[#FF9B17] rounded-[10px]">
+        {property.propertyType =="Villa" ? <button className="py-[5px] px-[10px] ml-[10px] bg-[#FFF5E7] text-[#FF9B17] rounded-[10px]">
           {property?.propertyType}
         </button> :  <button className="py-[5px] px-[10px] ml-[10px] bg-[#E8F7FF] text-[#256fff] rounded-[10px]">
           {property?.propertyType ? property.propertyType : property.type}
@@ -35,13 +35,13 @@ const ProCard = ({ property }) => {
       </div>
 
       {/* location container */}
-      <div className="flex pl-4 justify-start items-center gap-2">
+      <div className="flex justify-start items-center gap-2">
         <img src={locationImg} alt={property?.location} />
         <p className="mt-[5px] text-[#999999] font-medium text-[14px]">{property?.location}</p>
       </div>
 
       {/* features container */}
-      <div className={`${location.pathname === "/off-plan-properties" ? "hidden" : "flex"}  justify-start gap-[30px] items-center my-4 pl-4`}>
+      <div className={`${location.pathname === "/off-plan-properties" ? "hidden" : "flex"}  justify-start gap-[30px] items-center my-4`}>
         <div className="text-[#999999] flex justify-start items-center gap-3">
           <LiaBedSolid className="w-[20px] h-[20px] text-[2xl]" />
           <p className="font-medium text-[16px]">{property?.beds}</p>
@@ -64,7 +64,7 @@ const ProCard = ({ property }) => {
       </div>
 
       {/* Agent container */}
-      <div className={`flex justify-between items-center my-4 gap-3 mb-5 pl-4`}>
+      <div className={`flex justify-between items-center my-4 gap-3 mb-5`}>
         <img
             className="w-13 h-13 rounded-full"
           src={property?.agentImage ? property.agentImage : property.mainImage}
@@ -89,7 +89,7 @@ const ProCard = ({ property }) => {
 
 
       {/* buttons container */}
-      <div className={`flex items-center justify-between ${location.pathname === "/off-plan-properties" ? "pb-8 pt-5" : "pb-0"} `}>
+      <div className="flex items-center justify-between">
         <button  className="w-[80px] flex justify-center items-center gap-2 text-[#8D8D8D] bg-[#E6E6E6] px-16 py-[10px] rounded-[10px]">
           <span className="font-medium">Call</span>
         </button>
@@ -104,4 +104,4 @@ const ProCard = ({ property }) => {
   );
 };
 
-export default ProCard;
+export default OffPlanCard;

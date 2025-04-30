@@ -5,7 +5,7 @@ import bannerImg from "../../assets/HeroImage.png";
 const Banner = () => {
   return (
     <div
-      className="hero min-h-[650px] mx-auto md:min-h-[650px] mb-11 w-[90vw] overflow-hidden relative bg-cover bg-center rounded-[30px]"
+      className={`hero min-h-[650px] mx-auto md:min-h-[650px] mb-11 w-[90vw] overflow-hidden relative bg-cover bg-center rounded-[30px] -z-40`}
       style={{ backgroundImage: `url(${bannerImg})` }}
     >
       {/* Gray overlay */}

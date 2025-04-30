@@ -11,6 +11,8 @@ import {
 import "animate.css";
 import { Link } from "react-router-dom";
 import AgentSlider from "../../components/AgentSlider/AgentSlider";
+import PropertySearchBar from "../../components/PropertySearchBar/PropertySearchBar";
+import PropertyCardSlider from "../../components/PropertyCardSlider/PropertyCardSlider";
 
 const OffPlanPropertiesPage = () => {
   const properties = [
@@ -53,7 +55,9 @@ const OffPlanPropertiesPage = () => {
   ];
 
   return (
-    <div className="text-black pt-44 container mx-auto">
+    <div className="text-black pt-10 mb-20 container mx-auto">
+        <PropertySearchBar></PropertySearchBar>
+
       <h3 className="text-2xl  font-semibold  ">
         Start your off plan properties search
       </h3>
@@ -61,6 +65,20 @@ const OffPlanPropertiesPage = () => {
         From waterfront projects and luxury towers to family communities, Dubai
         offers an exciting array of off plan properties. Let's find yours.
       </p>
+
+      <PropertyCardSlider></PropertyCardSlider>
+
+
+      <h3 className="text-2xl  font-semibold  ">
+      Most recent launches
+      </h3>
+      <p className="text-lg text-gray-500 font-light">
+        From waterfront projects and luxury towers to family communities, Dubai
+        offers an exciting array of off plan properties. Let's find yours.
+      </p>
+
+      <PropertyCardSlider></PropertyCardSlider>
+
 
       <div>
         <h2 className="text-xl font-semibold">Our top picks</h2>
