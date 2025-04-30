@@ -3,20 +3,24 @@ import CommunitySlider from "../../components/CommunitySlider/CommunitySlider";
 import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import PropertySearchBar from "../../components/PropertySearchBar/PropertySearchBar";
 import axios from "axios";
-import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import FilterDropdown from "../../components/FilterDropdown/FilterDropdown";
+import { useLocation } from "react-router-dom";
 
 const Rent = () => {
   const [properties, setProperties] = useState([]);
+  const [filteredProperties, setFilteredProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [checked, setChecked] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     axios
       .get("properties.json")
       .then((res) => {
         setProperties(res.data);
+        setFilteredProperties(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -24,6 +28,72 @@ const Rent = () => {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    if (properties.length === 0) return;
+
+    const queryParams = new URLSearchParams(location.search);
+    const filtered = properties.filter(property => {
+      // Location filter (case insensitive)
+      if (queryParams.get('location')) {
+        const locationRegex = new RegExp(queryParams.get('location'), 'i');
+        if (!locationRegex.test(property.location)) return false;
+      }
+      
+      // Property type filter
+      if (queryParams.get('propertyType') && 
+          property.type !== queryParams.get('propertyType')) {
+        return false;
+      }
+      
+      // Price range filter
+      const minPrice = extractPriceValue(queryParams.get('minPrice'));
+      const maxPrice = extractPriceValue(queryParams.get('maxPrice'));
+      const propertyPrice = extractPriceValue(property.price);
+      
+      if (minPrice && propertyPrice < minPrice) return false;
+      if (maxPrice && propertyPrice > maxPrice) return false;
+      
+      // Beds filter
+      if (queryParams.get('beds')) {
+        const bedsFilter = queryParams.get('beds');
+        if (bedsFilter === 'All') {
+          // Include all
+        } else if (bedsFilter === 'Studio') {
+          if (property.bedrooms !== 0) return false;
+        } else if (bedsFilter.endsWith('+')) {
+          const minBeds = parseInt(bedsFilter, 10);
+          if (property.bedrooms < minBeds) return false;
+        } else {
+          if (property.bedrooms !== parseInt(bedsFilter, 10)) return false;
+        }
+      }
+      
+      // Baths filter
+      if (queryParams.get('baths')) {
+        const bathsFilter = queryParams.get('baths');
+        if (bathsFilter === 'All') {
+          // Include all
+        } else if (bathsFilter.endsWith('+')) {
+          const minBaths = parseInt(bathsFilter, 10);
+          if (property.bathrooms < minBaths) return false;
+        } else {
+          if (property.bathrooms !== parseInt(bathsFilter, 10)) return false;
+        }
+      }
+      
+      return true;
+    });
+    
+    setFilteredProperties(filtered);
+  }, [location.search, properties]);
+
+  // Helper function to extract numeric value from price strings
+  const extractPriceValue = (priceStr) => {
+    if (!priceStr) return 0;
+    const match = priceStr.toString().replace(/,/g, '').match(/\d+/);
+    return match ? parseInt(match[0], 10) : 0;
+  };
 
   return (
     <div>
@@ -35,11 +105,11 @@ const Rent = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 mb-6 md:mb-8">
             <div className="w-full md:w-auto">
-              <h3 className="text-xl  text-green-900 font-bold text-center md:text-left px-4 md:pl-[5%]">
+              <h3 className="text-xl text-green-900 font-bold text-center md:text-left px-4 md:pl-[5%]">
                 Properties for rent in Dubai
               </h3>
               <p className="text-center md:text-left text-gray-500 font-light mt-2 md:mt-0 px-4 md:pl-[5%]">
-                Results: {properties.length}
+                Results: {filteredProperties.length}
               </p>
             </div>
 
@@ -48,8 +118,6 @@ const Rent = () => {
               <div className="w-full md:w-auto">
                 <FilterDropdown />
               </div>
-
-              
 
               {/* View on Map Button */}
               <div className="w-[46%] md:w-auto flex items-center px-4 py-3 bg-white text-gray-800 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors duration-200 shadow-sm">
@@ -68,8 +136,8 @@ const Rent = () => {
         </div>
 
         {/* Property Cards */}
-        <div className="container mx-auto p-4  md:px-0">
-          {properties.map((property) => (
+        <div className="container mx-auto p-4 md:px-0">
+          {filteredProperties.map((property) => (
             <PropertyCard
               key={property.id}
               property={property}

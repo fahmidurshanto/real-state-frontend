@@ -185,6 +185,12 @@ const Navbar = () => {
               >
                 Contact
               </Link>
+              <Link
+                to="/our-team"
+                className={`hover:border-[#256fff] hover:border-b-2 hover:pb-1.5 text-[#000000] font-[400]`}
+              >
+                Our Team
+              </Link>
             </div>
           </div>
 

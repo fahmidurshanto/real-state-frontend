@@ -47,14 +47,14 @@ const ProCard = ({ property }) => {
           <p className="font-medium text-[16px]">{property?.beds}</p>
         </div>
 
-        <div class="h-3 w-[1.5px] bg-[#e6e6e6] mx-4"></div>
+        <div className="h-3 w-[1.5px] bg-[#e6e6e6] mx-4"></div>
 
         <div className="text-[#999999] flex justify-start items-center gap-3">
         <LiaBathSolid  className="w-[20px] h-[20px] text-2xl" />
           <p className="font-medium text-[16px]">{property?.baths}</p>
         </div>
 
-        <div class="h-3 w-[1.5px] bg-[#e6e6e6] mx-4"></div>
+        <div className="h-3 w-[1.5px] bg-[#e6e6e6] mx-4"></div>
 
 
         <div className="text-[#999999] flex justify-start items-center gap-3">
@@ -85,7 +85,7 @@ const ProCard = ({ property }) => {
         <h2 className="text-[18px] font-medium">{property?.price}</h2>
       </div>
 
-      <div class="h-[1px] w-80% bg-[#e6e6e6] my-4"></div>
+      <div className="h-[1px] w-80% bg-[#e6e6e6] my-4"></div>
 
 
       {/* buttons container */}
