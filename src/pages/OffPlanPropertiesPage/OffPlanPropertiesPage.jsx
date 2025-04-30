@@ -56,7 +56,7 @@ const OffPlanPropertiesPage = () => {
 
   return (
     <div className="text-black pt-10 mb-20 container mx-auto">
-        <PropertySearchBar></PropertySearchBar>
+      <PropertySearchBar></PropertySearchBar>
 
       <h3 className="text-2xl  font-semibold  ">
         Start your off plan properties search
@@ -68,17 +68,13 @@ const OffPlanPropertiesPage = () => {
 
       <PropertyCardSlider></PropertyCardSlider>
 
-
-      <h3 className="text-2xl  font-semibold  ">
-      Most recent launches
-      </h3>
+      <h3 className="text-2xl  font-semibold  ">Most recent launches</h3>
       <p className="text-lg text-gray-500 font-light">
         From waterfront projects and luxury towers to family communities, Dubai
         offers an exciting array of off plan properties. Let's find yours.
       </p>
 
       <PropertyCardSlider></PropertyCardSlider>
-
 
       <div>
         <h2 className="text-xl font-semibold">Our top picks</h2>
@@ -113,13 +109,13 @@ const OffPlanPropertiesPage = () => {
                           >
                             {/* Property Image */}
                             <Link to="/off-plan-property">
-                            <div className="h-48 overflow-hidden">
-                              <img
-                                src={property.image}
-                                alt={property.name}
-                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                              />
-                            </div>
+                              <div className="h-48 overflow-hidden">
+                                <img
+                                  src={property.image}
+                                  alt={property.name}
+                                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                />
+                              </div>
                             </Link>
 
                             {/* Property Details */}
@@ -177,27 +173,39 @@ const OffPlanPropertiesPage = () => {
                 }
               )}
             </div>
+            <h3 className="text-2xl  font-semibold  ">
+            Best payment plans
+      </h3>
+      <p className="text-lg text-gray-500 font-light">
+        From waterfront projects and luxury towers to family communities, Dubai
+        offers an exciting array of off plan properties. Let's find yours.
+      </p>
+
+      <PropertyCardSlider></PropertyCardSlider>
           </div>
         </div>
       </div>
 
       <div className="space-y-4 pt-10">
-
+        <h3 className="text-2xl  font-semibold  ">Off Plan Developers</h3>
+        <p className="text-lg text-gray-500 font-light">
+          Learn more about Dubai’s world famous developers and what makes them
+          unique.
+        </p>
+        <AgentSlider></AgentSlider>
+      </div>
       <h3 className="text-2xl  font-semibold  ">
-        Off Plan Developers
+      Luxury branded projects
       </h3>
       <p className="text-lg text-gray-500 font-light">
-      Learn more about Dubai’s world famous developers and what makes them unique.
+      Take luxury to a whole new level with branded residences by leading names – from world famous designers to five star hotels.
       </p>
-      <AgentSlider></AgentSlider>
-
-              
-      </div>
+      <PropertyCardSlider></PropertyCardSlider>
       <div>
-        <h3 className="text-4xl font-semibold text-center my-20">This section is under construction.</h3>
-      </div>
-      <div>
-        <h3 className="text-4xl font-semibold text-center my-20">Elevate your lifestyle with resort-branded amenities in the heart of the city</h3>
+        <h3 className="text-4xl font-semibold text-center my-20">
+          Elevate your lifestyle with resort-branded amenities in the heart of
+          the city
+        </h3>
       </div>
     </div>
   );

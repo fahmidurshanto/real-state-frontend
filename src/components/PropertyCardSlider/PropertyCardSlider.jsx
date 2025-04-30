@@ -83,7 +83,7 @@ const PropertyCardSlider = () => {
                 
               >
                <ProCard property={property}></ProCard>
-                {/* {slide.content} */}
+             
               </div>
             ))}
           </div>
