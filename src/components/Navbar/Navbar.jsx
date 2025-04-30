@@ -76,7 +76,7 @@ const Navbar = () => {
   return (
     // Main navigation container with dynamic classes based on scroll state and route
     <nav
-      className={` w-full border-b border-b-[#e6e6e6] z-50 transition-all duration-300 ${
+      className={` w-full border-b border-b-[#e6e6e6] z-50 transition-all  duration-300 ${
         isHomePage
           ? scrolled
             ? "bg-white shadow-md py-0 fixed"
@@ -136,7 +136,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Off Plan dropdown content - shown on hover */}
-                <div className="absolute left-0 top-full mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] z-50 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
+                <div className="absolute left-0 top-full z-[9999] mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] shadow-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
                   {offPlanMenuList.map((item) => (
                     <div
                       className="animate__animated animate__fadeInDown px-4 hover:bg-gray-50 transition-colors"
@@ -164,7 +164,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Commercial dropdown content - shown on hover */}
-                <div className="absolute left-0 top-full mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] z-50 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
+                <div className="absolute left-0 top-full mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] shadow-lg z-[9999] overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
                   {commercialMenuList.map((item) => (
                     <div
                       className="animate__animated animate__fadeInDown px-4 hover:bg-gray-50 transition-colors"

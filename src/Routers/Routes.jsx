@@ -7,6 +7,7 @@ import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import OffPlanPropertiesPage from "../pages/OffPlanPropertiesPage/OffPlanPropertiesPage";
 import OffPlanProperty from "../pages/OffPlanPropertiesPage/OffPlanProperty/OffPlanProperty";
 import Contact from "../pages/Contact/Contact";
+import AgentProfileCard from "../components/AgentProfileCard/AgentProfileCard";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
            {
             path: "/contact",
             element: <Contact></Contact>
+           },
+           {
+            path: "/agent",
+            element: <AgentProfileCard></AgentProfileCard>
            }
         ]
     }
