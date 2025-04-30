@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import "animate.css";
 import { Link } from "react-router-dom";
+import AgentSlider from "../../components/AgentSlider/AgentSlider";
 
 const OffPlanPropertiesPage = () => {
   const properties = [
@@ -78,7 +79,7 @@ const OffPlanPropertiesPage = () => {
               {" "}
               {/* Changed to flex column for better ad handling */}
               {/* Split properties into chunks of 3 */}
-              {Array.from({ length: Math.ceil(properties.length / 3) }).map(
+              {Array.from({ length: Math.ceil(properties?.length / 3) }).map(
                 (_, chunkIndex) => {
                   const startIndex = chunkIndex * 3;
                   const chunk = properties.slice(startIndex, startIndex + 3);
@@ -170,6 +171,8 @@ const OffPlanPropertiesPage = () => {
       <p className="text-lg text-gray-500 font-light">
       Learn more about Dubai’s world famous developers and what makes them unique.
       </p>
+      <AgentSlider></AgentSlider>
+
               
       </div>
       <div>
