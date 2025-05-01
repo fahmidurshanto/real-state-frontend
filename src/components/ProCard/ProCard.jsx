@@ -96,9 +96,6 @@ const ProCard = ({ property }) => {
   <button className="w[auto] flex justify-center items-center gap-2 text-[#00BD6E] bg-[#E5FFF1] px-8 py-[10px] rounded-[10px]">
     <span className="font-medium">Whatsapp</span>
   </button>
-  <button className={`w-[auto] ${location.pathname === "/off-plan-properties" ? "hidden" : "flex"} justify-center items-center gap-2 text-[#256FFF] bg-[rgb(235, 248, 255)] px-[20px] py-[10px] rounded-[10px]`}>
-    <span className="font-medium">Book a view</span>
-  </button>
 </div>
     </div>
   );

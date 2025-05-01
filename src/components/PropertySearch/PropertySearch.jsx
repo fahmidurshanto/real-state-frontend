@@ -25,7 +25,7 @@ const PropertySearch = () => {
     </div>
 
       {/* Search Fields */}
-      <div className="grid md:grid-cols-3 items-center gap-4 md:text-center w-[auto]">
+      <div className="grid md:grid-cols-3 gap-4 md:text-center w-full">
         {/* Location Field */}
         <div className="relative">
           <label className="block text-sm font-[600] text-left text-black mb-[0px]">
@@ -53,7 +53,7 @@ const PropertySearch = () => {
               className="w-full py-[5px] px-0 border-0 border-b text-gray-500 border-transparent focus:outline-none focus:border-b-2 focus:border-blue-500 pr-0 bg-transparent"
             />
             <div className="absolute right-10 top-1/2 transform -translate-y-1/2 text-blue-500 font-bold">
-              <RiArrowDropDownLine className="text-blue-400 text-4xl mr-5" />
+              <RiArrowDropDownLine className="text-blue-400 text-4xl" />
             </div>
           </div>
         </div>

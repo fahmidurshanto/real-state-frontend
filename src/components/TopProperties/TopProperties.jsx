@@ -78,7 +78,7 @@ const TopProperties = () => {
 
 
   return (
-    <div className="px-0 py-8 animate__animated animate__fadeIn">
+    <div className="px-0 py-8 animate__animated animate__fadeIn container mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold text-[#083819] mb-4">Browse our top properties</h1>
       {/* cards container */}
     <div  className="overflow-x-auto "
