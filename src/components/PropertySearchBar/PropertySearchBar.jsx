@@ -69,7 +69,7 @@ const PropertySearchBar = () => {
   };
 
   return (
-    <div className="w-full mx-auto z-50 p-4 mt-20 md:p-6 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn">
+    <div className="w-full mx-auto z-50 p-4 md:p-6 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn">
       <Tabs
         selectedIndex={activeTab}
         onSelect={(index) => {

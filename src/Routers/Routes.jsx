@@ -4,12 +4,12 @@ import Home from "../pages/Home/Home";
 import Buy from "../pages/Buy/Buy";
 import Rent from "../pages/Rent/Rent";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
-import OffPlanPropertiesPage from "../pages/OffPlanPropertiesPage/OffPlanPropertiesPage";
 import OffPlanProperty from "../pages/OffPlanPropertiesPage/OffPlanProperty/OffPlanProperty";
 import AgentProfileCard from "../components/AgentProfileCard/AgentProfileCard";
 import Contact from "../components/Contact/Contact";
 import TeamPage from "../components/TeamMembers/TeamPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import OffPlanListingPage from "../pages/OffPlanProperties/OffPlanPropertyListingPage";
 
 const router = createBrowserRouter([
     {
@@ -33,10 +33,10 @@ const router = createBrowserRouter([
                 path: "/property-details",
                 element: <PropertyDetails></PropertyDetails>
             },
-           {
-            path: "/off-plan-properties",
-            element: <OffPlanPropertiesPage></OffPlanPropertiesPage>
-           },
+            {
+                path: "/off-plan-properties",
+                element: <OffPlanListingPage></OffPlanListingPage>
+               },
            {
             path: "/off-plan-property",
             element: <OffPlanProperty></OffPlanProperty>
