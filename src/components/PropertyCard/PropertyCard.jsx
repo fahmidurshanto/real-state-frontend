@@ -96,13 +96,14 @@ const PropertyCard = ({ property, loading, error }) => {
             {/* <p className="text-red-950 text-sm font-medium">{property.type}</p> */}
 
             <button className="btn btn-outline outline-[#FFBF6A] bg-[#FFF5E7] btn-warning text-[#FF9B17]">
-          {property.type}
-        </button>
+              {property.type}
+            </button>
 
             {/* Property Type */}
             <div className="flex items-center gap-5 py-2  pl-[15px] md:pl-0">
               <p className="flex text-[#999999] items-center gap-1.5 font-medium">
-                <LiaBedSolid className="text-2xl text-[#999999]" /> {property.bedrooms}
+                <LiaBedSolid className="text-2xl text-[#999999]" />{" "}
+                {property.bedrooms}
               </p>
               <p className="flex text-[#999999]  items-center gap-1.5 font-medium">
                 <LiaBathSolid className="text-2xl " /> {property.bathrooms}
@@ -114,10 +115,10 @@ const PropertyCard = ({ property, loading, error }) => {
           </div>
 
           {/* Agent Information */}
-          <div className="flex items-center gap-6 mt-12 pb-0">
+          <div className="flex items-center gap-5 mt-12 pb-0">
             <img
               src={property.agent.photo}
-              className="w-16 h-16 rounded-full"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full"
               alt={property.agent.name}
             />
             <div>
@@ -125,7 +126,10 @@ const PropertyCard = ({ property, loading, error }) => {
               <p className="text-sm text-gray-400">
                 Speaks:{" "}
                 {property.agent.languages.map((language, index) => (
-                  <span className="mr-3" key={index}> {language},</span>
+                  <span className="mr-3" key={index}>
+                    {" "}
+                    {language},
+                  </span>
                 ))}
               </p>
             </div>
@@ -133,8 +137,6 @@ const PropertyCard = ({ property, loading, error }) => {
         </Link>
 
         {/* Action Buttons */}
-
-   
 
         <div
           onClick={() => {
@@ -156,7 +158,7 @@ const PropertyCard = ({ property, loading, error }) => {
             <FaWhatsapp />
             <span className="font-semibold ">Whatsapp</span>
           </button>
-          
+
           <button className="hidden md:flex cursor-pointer justify-center items-center gap-2 text-[#256FFF] bg-[#EBF8FF] px-4 py-3 rounded-[10px]">
             <span className="font-semibold">Book a viewing</span>
           </button>
