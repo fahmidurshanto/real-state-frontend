@@ -9,11 +9,13 @@ import OffPlanProperty from "../pages/OffPlanPropertiesPage/OffPlanProperty/OffP
 import AgentProfileCard from "../components/AgentProfileCard/AgentProfileCard";
 import Contact from "../components/Contact/Contact";
 import TeamPage from "../components/TeamMembers/TeamPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout></Layout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
