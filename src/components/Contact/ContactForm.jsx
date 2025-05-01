@@ -37,7 +37,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="bg-[rgba(37,111,255,1)] self-stretch flex w-full items-center gap-[40px_54px] overflow-hidden justify-between flex-wrap mt-12 pl-[110px] pr-[30px] py-[30px] max-md:max-w-full max-md:mt-10 max-md:px-5">
+    <section className="bg-[rgba(37,111,255,1)] self-stretch flex md:flex-row flex-col items-stretch w-full items-center gap-[40px_54px] overflow-hidden justify-between  mt-12 pl-[110px] pr-[30px] py-[30px] max-md:max-w-full max-md:mt-10 max-md:px-5">
       <div className="self-stretch flex min-w-60 flex-col items-stretch justify-center w-[479px] my-auto max-md:max-w-full">
         <h2 className="text-white text-4xl font-semibold max-md:max-w-full font-['Montserrat']">
           Book a Free Consultation
@@ -67,7 +67,7 @@ export const ContactForm = () => {
               type="text"
               placeholder="Last name"
               {...register("lastName", { required: true })}
-              className="bg-[rgba(246,247,255,1)] grow shrink-0 basis-0 w-fit px-[23px] py-3.5 rounded-[10px] max-md:px-5 focus:outline-none focus:ring-2 focus:ring-[rgba(37,111,255,1)]"
+              className="bg-[rgba(246,247,255,1)] grow shrink-0 basis-0 w-fit px-[23px] py-3.5 rounded-[10px] max-md:px-3 focus:outline-none focus:ring-2 focus:ring-[rgba(37,111,255,1)]"
             />
           </div>
 
@@ -85,7 +85,7 @@ export const ContactForm = () => {
               type="tel"
               placeholder="Phone Number"
               {...register("phone", { required: true })}
-              className="bg-[rgba(246,247,255,1)] grow shrink-0 basis-0 w-fit px-[23px] py-3.5 rounded-[10px] max-md:px-5 focus:outline-none focus:ring-2 focus:ring-[rgba(37,111,255,1)]"
+              className="bg-[rgba(246,247,255,1)] grow shrink-0 basis-0 w-fit px-[23px] py-3.5 rounded-[10px] max-md:px-3 focus:outline-none focus:ring-2 focus:ring-[rgba(37,111,255,1)]"
             />
           </div>
 

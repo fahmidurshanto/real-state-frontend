@@ -32,7 +32,7 @@ const Contact = () => {
     <div className="bg-white overflow-hidden items-center">
     <ContactHero />
     <ContactForm />
-    <div className='flex justify-around gap-8 items-center p-10'>
+    <div className='flex justify-start gap-8 items-center p-10'>
     <OfficeInfo />
     </div>
   </div>
