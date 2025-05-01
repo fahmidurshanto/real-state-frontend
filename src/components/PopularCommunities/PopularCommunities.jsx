@@ -22,7 +22,7 @@ const PopularCommunities = () => {
         <div className=' p-10 pl-0 space-y-5'>
             <h3 className='text-3xl font-bold text-[#083819]'>Popular Communities</h3>
             <p className='text-xl font-medium text-[#083819]'>It’s all about location – here are some of the most sought after areas for off plan investment.</p>
-            <div className='grid md:grid-cols-2 lg:grid-cols-5 gap-5 p-5'>
+            <div className='grid md:grid-cols-3 lg:grid-cols-6 gap-5 p-5'>
                 {
                     communities.map((community, index) => <Community key={index} community={community} ></Community>)
                 }
