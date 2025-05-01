@@ -67,15 +67,20 @@ const Navbar = () => {
     { id: 2, name: "Commercial Properties For Rent", link: "rent" },
   ];
 
+  // Helper function to determine text color
+  const getTextColor = () => {
+    if (isHomePage && !scrolled) return "text-white";
+    return "text-black";
+  };
+
   return (
+    // Main navigation container with dynamic classes based on scroll state and route
     <nav
-      className={`w-full border-b border-b-[#e6e6e6] z-50 transition-all duration-300 ${
-        isHomePage
-          ? scrolled
+      className={` w-full border-b border-b-[#e6e6e6] z-999  transition-all  duration-300 ${
+       scrolled
             ? "bg-white shadow-md py-0 fixed"
-            : "bg-white shadow-md py-0 fixed]"
-          : "bg-white shadow-md py-0 fixed"
-      } ${!isHomePage && !visible ? "-translate-y-full" : "translate-y-0"}`}
+            : "bg-transparent py-0 mb-[20px] "
+      } ${ "translate-y-0"}`}
       style={{
         transition: isHomePage
           ? "all 0.3s ease"
@@ -83,8 +88,9 @@ const Navbar = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        {/* Desktop Navbar */}
+        {/* Desktop Navbar - hidden on mobile */}
         <div className="hidden md:flex items-center justify-between">
+          {/* Logo section */}
           <Link to="/" className="animate__animated animate__fadeIn">
             <div className="flex justify-center items-center">
               <img className="w-24" src={logo} alt="LOGO" />
@@ -99,15 +105,18 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="flex items-center space-x-8 relative z-50 ">
+          {/* Navigation links section */}
+          <div className="flex items-center space-x-8 ">
             <div className="hidden lg:flex space-x-6 items-center">
+              {/* Buy link */}
               <Link
                 to="/buy"
-                className={`hover:border-[#256fff] hover:border-b-2 font-[400] hover:pb-1.5 text-[#000000]`}
+                className={` hover:border-[#256fff] hover:border-b-2 font-[400] hover:pb-1.5 text-[#000000]`}
               >
                 Buy
               </Link>
 
+              {/* Rent link */}
               <Link
                 to="/rent"
                 className={`hover:border-[#256fff] hover:border-b-2 hover:pb-1.5 font-[400] text-[#000000]`}
@@ -115,87 +124,83 @@ const Navbar = () => {
                 Rent
               </Link>
 
-              {/* Fixed Off Plan Dropdown */}
-              <div className="relative group ">
-                <div className="relative">
-                  <button
-                    className={`flex items-center cursor-pointer hover:border-[#256fff] hover:border-b-2 font-[400] hover:pb-1.5 text-[#000000] `}
-                  >
-                    Off Plan{" "}
-                    <IoIosArrowDown className="ml-1 transition-transform group-hover:rotate-180" />
-                  </button>
-                  {/* Hover bridge */}
-                  <div className="absolute left-0 right-0 h-4 bg-transparent" />
-                </div>
+              {/* Off Plan dropdown section */}
+              <div className="relative group uppercase">
+                <button
+                  className={`flex items-center cursor-pointer hover:border-[#256fff] hover:border-b-2 font-[400] hover:pb-1.5 text-[#000000]`}
+                >
+                  Off Plan{" "}
+                  <IoIosArrowDown className="ml-1 transition-transform group-hover:rotate-180" />
+                </button>
 
-                <div className="absolute left-0 top-full pt-2 w-[200px]">
-                  <div className="bg-white border border-[#e6e6e6] rounded-[20px] shadow-lg  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 z-[1000]">
-                    {offPlanMenuList.map((item) => (
-                      <div
-                        className="px-4 hover:bg-gray-50 "
-                        key={item.id}
+                {/* Off Plan dropdown content - shown on hover */}
+                <div className="absolute left-0 top-full z-[999] mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] shadow-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
+                  {offPlanMenuList.map((item) => (
+                    <div
+                      className="animate__animated animate__fadeInDown px-4 hover:bg-gray-50 transition-colors"
+                      key={item.id}
+                      style={{ animationDuration: "0.3s" }}
+                    >
+                      <Link
+                        to={`/${item.link}`}
+                        className="block text-[#083819] hover:text-[#083819] text-sm capitalize py-3 border-b border-gray-100"
                       >
-                        <Link
-                          to={`/${item.link}`}
-                          className="block text-[#083819] hover:text-[#083819] text-sm capitalize py-3 border-b border-gray-100"
-                        >
-                          {item.name}
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
+                        {item.name}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Fixed Commercial Dropdown */}
-              <div className="relative group ">
-                <div className="relative">
-                  <button
-                    className={`flex items-center cursor-pointer hover:border-[#256fff] hover:border-b-2 font-[400] hover:pb-1.5 text-[#000000] `}
-                  >
-                    Commercial{" "}
-                    <IoIosArrowDown className="ml-1 transition-transform group-hover:rotate-180" />
-                  </button>
-                  {/* Hover bridge */}
-                  <div className="absolute left-0 right-0 h-4 bg-transparent" />
-                </div>
+              {/* Commercial dropdown section */}
+              <div className="relative group uppercase cursor-pointer">
+                <button
+                  className={`flex items-center cursor-pointer hover:border-[#256fff] hover:border-b-2 font-[400] hover:pb-1.5 text-[#000000]`}
+                >
+                  Commercial{" "}
+                  <IoIosArrowDown className="ml-1 transition-transform group-hover:rotate-180" />
+                </button>
 
-                <div className="absolute left-0 top-full pt-2 w-[200px]">
-                  <div className="bg-white border border-[#e6e6e6] rounded-[20px] shadow-lg  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[1000]">
-                    {commercialMenuList.map((item) => (
-                      <div
-                        className="px-4 hover:bg-gray-50 transition-colors z-50"
-                        key={item.id}
+                {/* Commercial dropdown content - shown on hover */}
+                <div className="absolute left-0 top-full mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] shadow-lg z-[9999] overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
+                  {commercialMenuList.map((item) => (
+                    <div
+                      className="animate__animated animate__fadeInDown px-4 hover:bg-gray-50 transition-colors"
+                      key={item.id}
+                      style={{ animationDuration: "0.3s" }}
+                    >
+                      <Link
+                        to={`/${item.link}`}
+                        className="block text-[#083819] hover:text-[#083819] text-sm capitalize py-3 border-b border-gray-100"
                       >
-                        <Link
-                          to={`/${item.link}`}
-                          className="block text-[#083819] hover:text-[#083819] text-sm capitalize py-3 border-b border-gray-100"
-                        >
-                          {item.name}
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
+                        {item.name}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               </div>
 
+              {/* Contact link */}
               <Link
                 to="/contact"
-                className={`hover:border-[#256fff] hover:border-b-2 hover:pb-1.5 text-[#000000] font-[400]`}
+                className={` hover:border-[#256fff] hover:border-b-2 hover:pb-1.5 text-[#000000] font-[400]`}
               >
                 Contact
               </Link>
+
+              {/*OurTea Link*/}
               <Link
                 to="/our-team"
-                className={`hover:border-[#256fff] hover:border-b-2 hover:pb-1.5 text-[#000000] font-[400]`}
+                className={` hover:border-[#256fff] hover:border-b-2 hover:pb-1.5 text-[#000000] font-[400]`}
               >
                 Our Team
               </Link>
             </div>
           </div>
 
+          {/* WhatsApp contact section */}
           <div
-            className={`flex items-center space-x-4 animate__animated animate__fadeIn animate__delay-0.8s rounded-full bg-[#CEFFD5] text-green-400 font-medium relative z-10`}
+            className={`flex items-center space-x-4 animate__animated animate__fadeIn animate__delay-0.8s rounded-full  bg-[#CEFFD5]  text-green-400 font-medium`}
           >
             <Link
               to="https://wa.me/+1234567890"
@@ -209,8 +214,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navbar */}
+        {/* Mobile Navbar - shown only on mobile devices */}
         <div className="md:hidden flex items-center justify-between">
+          {/* Mobile logo */}
           <Link to="/" className="animate__animated animate__fadeIn">
             <div className="flex justify-center items-center">
               <img className="w-20" src={logo} alt="LOGO" />
@@ -225,16 +231,19 @@ const Navbar = () => {
             </div>
           </Link>
 
+          {/* Mobile menu icons */}
           <div className="flex items-center space-x-4">
+            {/* WhatsApp icon */}
             <Link
               to="https://wa.me/+8801640301028"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-green-500 hover:text-green-600`}
+              className={` text-green-500 hover:text-green-600`}
             >
               <FaWhatsapp className="text-xl" />
             </Link>
 
+            {/* Mobile menu toggle button */}
             <button
               onClick={toggleMenu}
               className={`text-black focus:outline-none animate__animated animate__fadeIn animate__delay-1s`}
@@ -248,10 +257,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu content - shown when menu is open */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-lg rounded-lg mt-2 animate__animated animate__fadeInRight animate__faster z-[1000] relative">
+          <div className="md:hidden bg-white shadow-lg rounded-lg mt-2 animate__animated animate__fadeInRight animate__faster">
             <div className="flex flex-col px-4">
+              {/* Buy link */}
               <Link
                 to="/buy"
                 className="text-[#083819] hover:text-[#083819] font-light text-sm capitalize border-x-0 border-y border-gray-100 py-5"
@@ -259,6 +269,7 @@ const Navbar = () => {
                 Buy
               </Link>
 
+              {/* Rent link */}
               <Link
                 to="/rent"
                 className="text-[#083819] hover:text-[#083819] font-light text-sm capitalize border-x-0 border-y border-gray-100 py-5"
@@ -266,14 +277,16 @@ const Navbar = () => {
                 Rent
               </Link>
 
+              {/* Off Plan dropdown for mobile */}
               <details className="cursor-pointer border-x-0 border-y border-gray-100 py-5">
                 <summary className="flex items-center justify-between font-light text-[#083819] capitalize">
                   Off Plan <IoIosArrowDown />
                 </summary>
                 {offPlanMenuList.map((item) => (
                   <div
-                    className="pl-4 py-3 mt-2 hover:bg-gray-50 transition-colors"
+                    className="animate__animated animate__fadeInDown pl-4 py-3 mt-2 hover:bg-gray-50 transition-colors"
                     key={item.id}
+                    style={{ animationDuration: "0.5s" }}
                   >
                     <Link
                       to={`/${item.link}`}
@@ -285,14 +298,16 @@ const Navbar = () => {
                 ))}
               </details>
 
+              {/* Commercial dropdown for mobile */}
               <details className="cursor-pointer border-x-0 border-y border-gray-100 py-5">
                 <summary className="flex items-center justify-between font-light text-[#083819] capitalize">
                   Commercial <IoIosArrowDown />
                 </summary>
                 {commercialMenuList.map((item) => (
                   <div
-                    className="pl-4 py-3 mt-2 transition-colors"
+                    className="animate__animated animate__fadeInDown pl-4 py-3 mt-2 transition-colors"
                     key={item.id}
+                    style={{ animationDuration: "0.5s" }}
                   >
                     <Link
                       to={`/${item.link}`}
@@ -304,6 +319,7 @@ const Navbar = () => {
                 ))}
               </details>
 
+              {/* Blog link */}
               <Link
                 to="/blog"
                 className="text-[#083819] hover:text-[#083819] font-light text-sm capitalize border-x-0 border-y border-gray-100 py-5"
@@ -311,6 +327,7 @@ const Navbar = () => {
                 Blog
               </Link>
 
+              {/* Contact link */}
               <Link
                 to="/contact"
                 className="text-[#083819] hover:text-[#083819] font-light text-sm capitalize border-x-0 border-y border-gray-100 py-5"
