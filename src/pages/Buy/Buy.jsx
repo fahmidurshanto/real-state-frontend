@@ -97,7 +97,7 @@ const Buy = () => {
 
   return (
     <div>
-      <div className="pt-24 my-4 px-4 md:px-0">
+      <div className="pt-24 px-4 md:px-0">
         <PropertySearchBar />
         <CommunitySlider />
 

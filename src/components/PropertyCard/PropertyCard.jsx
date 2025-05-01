@@ -117,7 +117,7 @@ const PropertyCard = ({ property, loading, error }) => {
           <div className="flex items-center gap-6 mt-12 pb-0">
             <img
               src={property.agent.photo}
-              className="w-16 h-16 rounded-xl"
+              className="w-16 h-16 rounded-full"
               alt={property.agent.name}
             />
             <div>
