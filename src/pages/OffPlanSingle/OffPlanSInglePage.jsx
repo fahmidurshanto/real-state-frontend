@@ -1,11 +1,12 @@
 import React from 'react';
-import Tabs from '../../../components/OffPlanSingle/Navigation/Tabs';
-import ProjectDetailsCard from '../../../components/OffPlanSingle/ProjectDetails/ProjectDetailsCard';
-import ContactForm from '../../../components/OffPlanSingle/Forms/ContactForm';
-import HeroBanner from '../../../components/OffPlanSingle/Hero/HeroBanner';
-import AboutSection from '../../../components/OffPlanSingle/Sections/AboutSection';
-import GallerySection from '../../../components/OffPlanSingle/Sections/GallerySection';
-import LocationSection from '../../../components/OffPlanSingle/Sections/LocationSection';
+import Tabs from '../../components/OffPlanSingle/Navigation/Tabs';
+import ProjectDetailsCard from '../../components/OffPlanSingle/ProjectDetails/ProjectDetailsCard';
+import ContactForm from '../../components/OffPlanSingle/Forms/ContactForm';
+import HeroBanner from '../../components/OffPlanSingle/Hero/HeroBanner';
+import AboutSection from '../../components/OffPlanSingle/Sections/AboutSection';
+import GallerySection from '../../components/OffPlanSingle/Sections/GallerySection';
+import PricesSection from '../../components/OffPlanSingle/Sections/PricesSection';
+import LocationSection from '../../components/OffPlanSingle/Sections/LocationSection';
 
 const OffPlanSinglePage = ({ children }) => {
   return (

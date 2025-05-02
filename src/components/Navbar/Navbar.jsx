@@ -134,7 +134,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Off Plan dropdown content - shown on hover */}
-                <div className="absolute left-0 top-full z-[999] mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] shadow-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
+                <div className="absolute z-10 left-0 top-full z-[999] mt-2 w-[200px] bg-white border-1 border-[#e6e6e6] rounded-[20px] shadow-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 cursor-pointer">
                   {offPlanMenuList.map((item) => (
                     <div
                       className="animate__animated animate__fadeInDown px-4 hover:bg-gray-50 transition-colors"

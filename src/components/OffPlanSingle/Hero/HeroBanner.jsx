@@ -73,13 +73,14 @@ const HeroBanner = () => {
 
           <p className="text-gray-500 text-[12px]">License number: 202402273451</p>
         </div>
-
-        <div className="bg-white rounded-[30px] border border-[#e6e6e6] overflow-hidden relative h-[420px] md:h-auto">
-          <img 
+        
+        <div className="bg-white rounded-[30px] border border-[#e6e6e6] overflow-hidden z-0 relative h-[420px] md:h-auto">
+    <img 
             src={images[currentIndex].src} 
             alt={images[currentIndex].alt} 
             className="w-full h-full object-cover"
           />
+           
           
           <button 
             onClick={goToPrevious}

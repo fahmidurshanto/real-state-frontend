@@ -2,11 +2,18 @@ import React from 'react';
 import { Building2, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import locationImg from "../../../assets/group-39519-2.svg";
+import { useNavigate } from 'react-router-dom';
 
 
 const PropertyCard = ({ property }) => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/off-plan-single'); 
+  }
   return (
-    <div className="bg-white rounded-[20px] overflow-hidden hover:shadow-lg border border-[#e6e6e6]  transition-all duration-300">
+    <div onClick={handleClick} className="bg-white rounded-[20px] overflow-hidden hover:shadow-lg border border-[#e6e6e6]  transition-all duration-300">
       <div className="relative">
         <img 
           src={property.image} 
