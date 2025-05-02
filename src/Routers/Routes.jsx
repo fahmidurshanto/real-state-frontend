@@ -10,7 +10,7 @@ import TeamPage from "../components/TeamMembers/TeamPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import OffPlanSinglePage from "../pages/OffPlanSingle/OffPlanSInglePage";
 import OffPlanListingPage from "../pages/OffPlanProperties/OffPlanPropertyListingPage";
-import AdminPannelAgents from "../pages/AdminPannelAgents/AdminPannelAgents";
+import AdminPanelAgents from "../pages/AdminPannelAgents/AdminPannelAgents";
 
 const router = createBrowserRouter([
     {
@@ -56,8 +56,8 @@ const router = createBrowserRouter([
             element: <OffPlanSinglePage></OffPlanSinglePage>
            },
            {
-            path: "/admin-pannel/agents",
-            element: <AdminPannelAgents></AdminPannelAgents>
+            path: "/admin-panel/agents",
+            element: <AdminPanelAgents></AdminPanelAgents>
            }
         ]
     }

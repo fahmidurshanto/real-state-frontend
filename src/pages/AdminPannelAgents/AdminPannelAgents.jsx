@@ -1,10 +1,10 @@
 import React from 'react';
 import { SidebarProvider } from '../../components/AdminPannelAgents/context/SidebarContext';
 import { AgentProvider } from '../../components/AdminPannelAgents/context/AgentContext';
-import Layout from '../../components/AdminPannelAgents/layout/Layout';
 import AgentsPage from '../../components/AdminPannelAgents/AgentsPage';
+import Layout from '../../components/AdminPannelAgents/layout/Layout';
 
-function AdminPannelAgents() {
+function AdminPanelAgents() {
   return (
     <SidebarProvider>
       <AgentProvider>
@@ -16,4 +16,4 @@ function AdminPannelAgents() {
   );
 }
 
-export default AdminPannelAgents;
+export default AdminPanelAgents;

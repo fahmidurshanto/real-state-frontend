@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Modal from '../ui/Modal';
 import Input from '../ui/Input';
 import { useAgents } from '../context/AgentContext';
-import Button from '../ui/Button';
-import { set } from 'mongoose'
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 const initialFormData = {
   username: '',
@@ -28,31 +29,29 @@ const AddAgentModal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      setLoading(true);
-      const res = await fetch('/api/agents/add-agents', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
 
-      const data = await res.json();
-      if (data.success == false) {
+    axios.post('/api/agents/add-agents', formData)
+      .then(response => {
+        console.log('Agent added successfully:', response.data)
+        const data = response.data;
+        console.log(data);
+       
         setLoading(false);
-        setError("An error occurred while adding the agent. Please try again.");
-        return;
-      }
-      setLoading(false);
-      setFormData(initialFormData); // clear form
-      closeAddAgentModal();
-
-
-    } catch (error) {
-      setLoading(false);
+        setFormData(initialFormData); // clear form
+        closeAddAgentModal();
+      })
+      .catch(error => {
+        console.error('Error adding agent:', error)
+        setLoading(false);
       setError('An error occurred while adding the agent. Please try again.');
-    }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `${error.message}`,
+      })
+      })
+
+    
   };
 
   return (
@@ -96,9 +95,9 @@ const AddAgentModal = () => {
 
         />
         <div className="pt-2">
-          <Button type="submit" variant="primary" fullWidth className="bg-blue-100 hover:bg-blue-200 text-blue-600">
+          <button type="submit" variant="primary" fullWidth className="bg-blue-100 hover:bg-blue-200 text-blue-600">
             {loading ? 'Adding...' : 'Add Agent'}
-          </Button>
+          </button>
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
       </form>
