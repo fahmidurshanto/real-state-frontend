@@ -10,9 +10,12 @@ import TeamPage from "../components/TeamMembers/TeamPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import OffPlanSinglePage from "../pages/OffPlanSingle/OffPlanSInglePage";
 import OffPlanListingPage from "../pages/OffPlanProperties/OffPlanPropertyListingPage";
-import AdminPanelAgents from "../pages/AdminPannelAgents/AdminPannelAgents";
+import AdminPannelAgents from "../pages/AdminPannelAgents/AdminPannelAgents";
+import AdminSIgnInPage from "../pages/AdminSIgnInPage/AdminSignInPage";
+import { ProtectedAdminRoute, PublicRoute } from "../pages/AdminPannel/ProtectedAdminRoute";
 
 const router = createBrowserRouter([
+
     {
         path: "/",
         element: <Layout></Layout>,
@@ -38,27 +41,45 @@ const router = createBrowserRouter([
                 path: "/off-plan-properties",
                 element: <OffPlanListingPage></OffPlanListingPage>
             },
+
+            {
+                path: "/contact",
+                element: <Contact></Contact>
+            },
+            {
+                path: "/agent",
+                element: <AgentProfileCard></AgentProfileCard>
+            },
+            {
+                path: "/our-team",
+                element: <TeamPage></TeamPage>
+            },
+            {
+                path: "/off-plan-single",
+                element: <OffPlanSinglePage></OffPlanSinglePage>
+            },
            
-           {
-            path: "/contact",
-            element: <Contact></Contact>
-           },
-           {
-            path: "/agent",
-            element: <AgentProfileCard></AgentProfileCard>
-           },
-           {
-            path: "/our-team",
-            element: <TeamPage></TeamPage>
-           },
-           {
-            path: "/off-plan-single",
-            element: <OffPlanSinglePage></OffPlanSinglePage>
-           },
-           {
-            path: "/admin-panel/agents",
-            element: <AdminPanelAgents></AdminPanelAgents>
-           }
+        ]
+    },
+    {
+        path: "/admin-pannel",
+        element: <ProtectedAdminRoute />,
+        children: [
+            {
+                path: "agents",
+                element: <AdminPannelAgents />
+            },
+           
+        ]
+    },
+   
+    {
+        element: <PublicRoute />,
+        children: [
+            {
+                path: "/admin-login",
+                element: <AdminSIgnInPage></AdminSIgnInPage>
+            }
         ]
     }
 ])
