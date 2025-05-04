@@ -69,7 +69,7 @@ const SignInForm = () => {
         setLoading(true);
         setIsSubmitting(true);
 
-        const res = await fetch('/api/admin-login', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin-login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const SignInForm = () => {
         setLoading(false);
         setIsSubmitting(false); 
         setError(null);
-        navigate('/admin-pannel/agents'); 
+        navigate('/admin-pannel'); 
         setFormData(initialFormData);
   
   

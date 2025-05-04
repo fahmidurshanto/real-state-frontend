@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Home from "../pages/Home/Home";
 import Buy from "../pages/Buy/Buy";
@@ -10,9 +10,13 @@ import TeamPage from "../components/TeamMembers/TeamPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import OffPlanSinglePage from "../pages/OffPlanSingle/OffPlanSInglePage";
 import OffPlanListingPage from "../pages/OffPlanProperties/OffPlanPropertyListingPage";
-import AdminPannelAgents from "../pages/AdminPannelAgents/AdminPannelAgents";
 import AdminSIgnInPage from "../pages/AdminSIgnInPage/AdminSignInPage";
 import { ProtectedAdminRoute, PublicRoute } from "../pages/AdminPannel/ProtectedAdminRoute";
+import AdminPannelPage from "@/pages/AdminPannelPages/AdminPannel";
+import PropertiesPage from "../pages/AdminPannelPages/PropertiesPage";
+import AgentsPage from "@/pages/AdminPannelPages/AgentsPage";
+import AdminsPage from "@/pages/AdminPannelPages/AdminsPage";
+import { AgentProvider } from '@/components/AdminPannelAgents/context/AgentContext';
 
 const router = createBrowserRouter([
 
@@ -58,21 +62,42 @@ const router = createBrowserRouter([
                 path: "/off-plan-single",
                 element: <OffPlanSinglePage></OffPlanSinglePage>
             },
-           
+
         ]
     },
     {
-        path: "/admin-pannel",
+
         element: <ProtectedAdminRoute />,
         children: [
             {
-                path: "agents",
-                element: <AdminPannelAgents />
+                path: "/admin-pannel",
+                element: <AdminPannelPage />,
+                children: [
+
+                    {
+                        index: true, // 👈 default path under /admin-pannel
+                        element: <Navigate to="properties" replace />
+                      },
+                    {
+                        path: "properties",
+                        element: <PropertiesPage></PropertiesPage>
+                    },
+                    {
+                        path: "agents",
+                        element: <AgentProvider><AgentsPage /></AgentProvider>  
+                    },
+                    {
+                        path: "admins",
+                        element: <AdminsPage></AdminsPage>
+                    }
+                ]
+
             },
-           
+
+
         ]
     },
-   
+
     {
         element: <PublicRoute />,
         children: [

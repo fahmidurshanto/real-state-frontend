@@ -12,7 +12,7 @@ const Home = () => {
     <div className="mb-10 pt-10">
       <div className="md:relative">
         <Banner></Banner>
-        <div className=" md:absolute md:-bottom-14 md:left-1/2 md:transform md:-translate-x-1/2  w-full max-w-4xl px-4 bg-white rounded-[20px] shadow-lg mx-auto -z-40 p-4">
+        <div className=" md:absolute md:-bottom-14 md:left-1/2 md:transform md:-translate-x-1/2  w-full max-w-4xl px-4 bg-white rounded-[20px] shadow-lg mx-auto z-40 p-4">
           <SearchField></SearchField>
         </div>
       </div>

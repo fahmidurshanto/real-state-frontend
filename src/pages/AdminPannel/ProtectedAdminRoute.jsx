@@ -40,5 +40,5 @@ export const PublicRoute = () => {
     if (authorized == null) return <p>Loading...</p>;
 
   
-  return authorized ? <Navigate to="/admin-pannel/agents" replace /> : <Outlet />;
+  return authorized ? <Navigate to="/admin-pannel" replace /> : <Outlet />;
 };
