@@ -1,7 +1,7 @@
 # Dubai Real Estate - Property Listings Platform
 
 ![Website Preview](https://i.imgur.com/7X8Jy5T.png)  
-**Live Demo:** [https://real-state-wheat-eight.vercel.app/](https://real-state-wheat-eight.vercel.app/)
+**Live Demo:** [https://real-state-frontend-sigma.vercel.app/](https://real-state-frontend-sigma.vercel.app/)
 
 A modern real estate portal showcasing premium properties in Dubai, featuring Burj Khalifa-view apartments, luxury penthouses, and smart home solutions.
 
